@@ -8,9 +8,17 @@ namespace AddressProcessing.CSV
 
         Please leave the rest of this file as it is so we can discuss your concerns during the next stage of the interview process.
         
-        *)
-        *)
-        *)
+        *) As a preference use switch statement in a case where your code flow is just checking value of simple parameters
+        *) Validation - Check for null/empty string use cases for fileName/mode/columns parameters and handle them separately 
+        *) Implement try-catch blocks to handle other exceptions like null references
+        *) Use File.Exists check before calling File.OpenText
+        *) Use a variable to hold value of "columns.Length" instead of computing it everytime inside the loop 
+        *) Dispose unused objects. Better practice would be to use "using" blocks for FileInfo, StreamReader and StreamWriter
+        *) In Close method explicitly call the Dispose() method for reader and writer objects as both StreamReader and StreamWriter implement the IDisposable interface 
+        *) Constants and variables (FIRST_COLUMN, SECOND_COLUMN, char[] separator, columns etc ) which are used by multiple methods should be declared at the top of the class instead of declaring them within each individual method
+        *) Use StringBuilder when doing string operations like outPut += columns[i] otherwise we create a new string object with every loop iteration as strings are immutable
+        *) Refactor code on overloaded Read functions as they are almost identical. Use a third function i.e., ProcessRead() to hold the common code and let the two Read functions call that
+          
     */
 
     public class CSVReaderWriterForAnnotation
